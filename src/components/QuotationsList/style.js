@@ -2,23 +2,33 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   filters: {
-    width: "100%",
-    flexDirection: "row",
-    paddingVertical: 15,
+    width: "95%",
+    flexDirection: "column",
     justifyContent: "space-evenly"
   },
+  buttonsAlign: {
+    flexDirection: "row",
+    justifyContent: 'space-around'
+  },
   buttonQuery: {
-    width: 65,
-    height: 30,
-    backgroundColor: "#F50D41",
+    width: 100,
+    height: 40,
+    backgroundColor: "#F7931A",
     borderRadius: 6,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 10,
+    borderColor: "#bbb",
+    borderWidth: 1,
+
   },
   textButtonQuery: {
     color: "#FFF",
     fontWeight: "bold",
     fontSize: 14,
+    textShadowColor: "#000",
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 3
   }
 });
 

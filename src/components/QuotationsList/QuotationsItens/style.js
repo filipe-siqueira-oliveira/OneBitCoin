@@ -2,14 +2,15 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   mainContent: {
-    width: "95%",
+    width: "90%",
     height: "auto",
-    marginLeft: "3%",
     marginBottom: 15,
     borderRadius: 10,
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
+    borderWidth: 1,
+    borderColor: "#b0b0b0",
   },
   logoBitcoin: {
     width: 40,
@@ -33,13 +34,19 @@ export const styles = StyleSheet.create({
   dayQuotation: {
     fontSize: 16,
     paddingLeft: 10,
-    color: "#FFF",
+    color: "#000",
     fontWeight: "bold",
+    textShadowColor: "#AAA",
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 3
   },
   price: {
-    color: "#FFF",
+    color: "#000",
     fontSize: 18,
     fontWeight: "bold",
+    textShadowColor: "#AAA",
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 3
 
   }
 });

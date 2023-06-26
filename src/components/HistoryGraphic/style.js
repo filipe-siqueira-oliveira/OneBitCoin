@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   contentGraphic: {
     width: "90%",
     height: 220,
-    backgroundColor: "#232323",
+    backgroundColor: "#d0d0d0",
     borderRadius: 10,
   },
 });

@@ -23,7 +23,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#e5e5e5',
     alignItems: 'center',
     paddingTop: Platform.OS === "android" ? 40 : 0,
   },
