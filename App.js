@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
+
+import CurrentPrice from './src/components/CurrentPrice/';
+import HistoryGraphic from './src/components/HistoryGraphic/'
+import QuotationsList from './src/components/QuotationsList';
+import QuotationsItens from './src/components/QuotationsList/QuotationsItens';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar 
+        backgroundColor="#F50D41" 
+        barStyle="light-content"
+      />
+      <CurrentPrice/>
+      <HistoryGraphic/>
+      <QuotationsList/>
+      <QuotationsItens/>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === "android" ? 40 : 0,
   },
 });
