@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
   filters: {
     width: "95%",
     flexDirection: "column",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
+    marginBottom: 10
   },
   buttonsAlign: {
     flexDirection: "row",
@@ -29,6 +30,15 @@ export const styles = StyleSheet.create({
     textShadowColor: "#000",
     textShadowOffset: {width: 1, height: 1},
     textShadowRadius: 3
+  },
+  listQuotationBitcoins: {
+    paddingTop:10,
+    width: "100%", 
+  },
+  listHeight: {
+    marginVertical: 5,
+    width: "100%",
+    height: "auto",
   }
 });
 

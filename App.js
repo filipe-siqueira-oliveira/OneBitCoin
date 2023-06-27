@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
+import React, { useState, useEffect } from "react"
+import { StyleSheet, SafeAreaView, Platform, StatusBar } from 'react-native';
 
 import CurrentPrice from './src/components/CurrentPrice/';
 import HistoryGraphic from './src/components/HistoryGraphic/'
 import QuotationsList from './src/components/QuotationsList';
-import QuotationsItens from './src/components/QuotationsList/QuotationsItens';
 
 function addZero(number) {
   if(number <= 9) {
@@ -39,14 +39,38 @@ async function getPriceCoinsGraphic(url) {
   let responseG = await fetch(url);
   let returnApiG = await responseG.json();
   let selectListQuotationsG = returnApiG.bpi
-  const queryCoinsList = Object.keys(selectListQuotationsG).map((key) => {
-    selectListQuotationsG[key]
+  const queryCoinsListG = Object.keys(selectListQuotationsG).map((key) => {
+    return selectListQuotationsG[key]
   });
-  let dataG = queryCoinsList.reverse();
+  let dataG = queryCoinsListG;
   return dataG
 }
 
 export default function App() {
+  const [coinsList, setCoinsList] = useState([]);
+  const [coinsGraphicList, setCoinsGraphicList] = useState([0]);
+  const [days, setDays] = useState(365);
+  const [updateData, setUpdateData] = useState(true);
+
+  function updateDay(number) {
+    setDays(number);
+    setUpdateData(true);
+  }
+
+  useEffect(() => {
+    getListCoins(url(days)).then((data) => {
+      setCoinsList(data);
+    });
+
+    getPriceCoinsGraphic(url(days)).then((dataG) => {
+      setCoinsGraphicList(dataG);
+    })
+
+    if(updateData) {
+      setUpdateData(false)
+    }
+  }, [updateData]);
+  
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar 
@@ -54,9 +78,8 @@ export default function App() {
         barStyle="light-content"
       />
       <CurrentPrice/>
-      <HistoryGraphic/>
-      <QuotationsList/>
-      <QuotationsItens/>
+      <HistoryGraphic infoDataGraphic={coinsGraphicList}/>
+      <QuotationsList filterDay={updateDay} listTransactions={coinsList}/>
     </SafeAreaView>
   );
 }

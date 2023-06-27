@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     height: "auto",
     marginBottom: 15,
     borderRadius: 10,
+    marginLeft: 20,
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
